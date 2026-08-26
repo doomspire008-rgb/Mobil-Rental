@@ -44,18 +44,18 @@
 
                         <!-- 3 Specs Box -->
                         <div class="grid grid-cols-3 gap-4 my-6">
-                            <div class="text-center p-4 rounded-xl bg-slate-50 border border-slate-100">
-                                <span class="text-xl block mb-1">👥</span>
+                            <div class="text-center p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center">
+                                <svg class="w-6 h-6 text-slate-500 mb-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                                 <p class="text-xs text-slate-400 font-medium">Kapasitas</p>
                                 <p class="text-sm font-bold text-slate-900">{{ $car->seats }} Penumpang</p>
                             </div>
-                            <div class="text-center p-4 rounded-xl bg-slate-50 border border-slate-100">
-                                <span class="text-xl block mb-1">⚙️</span>
+                            <div class="text-center p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center">
+                                <svg class="w-6 h-6 text-slate-500 mb-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                                 <p class="text-xs text-slate-400 font-medium">Transmisi</p>
                                 <p class="text-sm font-bold text-slate-900">{{ ucfirst($car->transmission) }}</p>
                             </div>
-                            <div class="text-center p-4 rounded-xl bg-slate-50 border border-slate-100">
-                                <span class="text-xl block mb-1">⛽</span>
+                            <div class="text-center p-4 rounded-xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center">
+                                <svg class="w-6 h-6 text-slate-500 mb-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                 <p class="text-xs text-slate-400 font-medium">Bahan Bakar</p>
                                 <p class="text-sm font-bold text-slate-900">{{ ucfirst($car->fuel_type) }}</p>
                             </div>
@@ -68,16 +68,16 @@
                         <!-- Highlights -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-slate-100 text-xs text-slate-600 font-medium">
                             <div class="flex items-center gap-2">
-                                <span class="text-emerald-500 font-bold">✓</span> AC Dingin & Kabin Steril Higienis
+                                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> AC Dingin & Kabin Steril Higienis
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-emerald-500 font-bold">✓</span> Asuransi All-Risk Komprehensif
+                                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Asuransi All-Risk Komprehensif
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-emerald-500 font-bold">✓</span> Bantuan Darurat Jalan Raya 24 Jam
+                                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Bantuan Darurat Jalan Raya 24 Jam
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-emerald-500 font-bold">✓</span> Audio Bluetooth & USB Charger Port
+                                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Audio Bluetooth & USB Charger Port
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <div class="flex items-center gap-1 text-amber-400 mb-1.5 text-sm">
                                 @for($i = 0; $i < $review->rating; $i++)
-                                    <span>★</span>
+                                    <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 @endfor
                             </div>
                             <p class="text-slate-700 text-xs sm:text-sm italic mb-2">"{{ $review->comment }}"</p>
@@ -118,7 +118,8 @@
                         <a href="https://wa.me/6281299779053?text={{ urlencode('Halo RentalMobilku, saya ingin menyewa ' . $car->name . ' (Plat: ' . $car->plate_number . '). Apakah unit tersedia?') }}" 
                            target="_blank" 
                            class="btn-primary w-full py-3.5 flex items-center justify-center gap-2 font-bold">
-                            💬 Pesan via WhatsApp CS
+                            <svg class="w-4 h-4 text-white fill-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.665-.699c.971.53 1.771.821 2.795.821 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0-2.172c4.418 0 8 3.582 8 8s-3.582 8-8 8c-1.393 0-2.695-.357-3.832-.984l-4.168 1.094 1.116-4.075c-.702-1.196-1.116-2.584-1.116-4.035 0-4.418 3.582-8 8-8z"/></svg>
+                            Pesan via WhatsApp CS
                         </a>
                         
                         @auth
@@ -135,13 +136,16 @@
                     <!-- Trust Checklist -->
                     <div class="space-y-2.5 pt-4 border-t border-slate-100 text-xs text-slate-600">
                         <div class="flex items-center gap-2">
-                            <span class="text-blue-600 font-bold">🛡️</span> Asuransi All-Risk & TLO
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            Asuransi All-Risk & TLO
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-blue-600 font-bold">⚡</span> Konfirmasi Instan < 15 Menit
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            Konfirmasi Instan < 15 Menit
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-blue-600 font-bold">🔄</span> Gratis Reschedule s/d 24 Jam
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                            Gratis Reschedule s/d 24 Jam
                         </div>
                     </div>
                 </div>

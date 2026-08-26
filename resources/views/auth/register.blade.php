@@ -3,11 +3,7 @@
 @section('title', 'Daftar Akun Baru - RentalMobilku')
 
 @section('content')
-<div class="min-h-[90vh] flex items-center justify-center pt-32 pb-20 md:pt-36 md:pb-24 px-4 bg-slate-50 relative overflow-hidden">
-    <!-- Ambient mesh background -->
-    <div class="hero-glow w-96 h-96 bg-blue-400/15 top-10 right-1/4"></div>
-    <div class="hero-glow w-96 h-96 bg-emerald-400/10 bottom-10 left-1/4"></div>
-
+<div class="min-h-[90vh] flex items-center justify-center pt-32 pb-20 md:pt-36 md:pb-24 px-4 bg-slate-50 relative">
     <div class="w-full max-w-md relative z-10">
         <!-- Header -->
         <div class="text-center mb-8">

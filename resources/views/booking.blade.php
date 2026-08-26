@@ -3,7 +3,7 @@
 @section('title', 'Booking - RentalMobilku')
 
 @section('content')
-<div class="pt-24 pb-8" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+<div class="bg-slate-950 text-white pt-28 pb-12">
     <div class="container-custom">
         <h1 class="text-3xl font-bold text-white mb-2">Booking Saya</h1>
         <p class="text-slate-400">Kelola semua booking Anda di sini</p>

@@ -8,7 +8,7 @@
     <div class="container-custom flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
             <span class="badge-neutral bg-slate-900 border-slate-800 text-blue-400 mb-2 inline-block">Akun Pelanggan</span>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Halo, {{ auth()->user()->name }} 👋</h1>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Halo, {{ auth()->user()->name }}</h1>
             <p class="text-slate-400 text-xs sm:text-sm mt-0.5">{{ auth()->user()->email }} &middot; {{ auth()->user()->phone ?? 'Belum ada nomor HP' }}</p>
         </div>
         <div>
@@ -25,8 +25,8 @@
         <!-- Summary Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xl">
-                    🚗
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
                 </div>
                 <div>
                     <p class="text-2xl font-extrabold text-slate-900">{{ auth()->user()->bookings->count() }}</p>
@@ -35,8 +35,8 @@
             </div>
 
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl">
-                    ⚡
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
                 <div>
                     <p class="text-2xl font-extrabold text-slate-900">{{ auth()->user()->bookings->where('status', 'active')->count() }}</p>
@@ -45,8 +45,8 @@
             </div>
 
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xl">
-                    ✓
+                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 </div>
                 <div>
                     <p class="text-2xl font-extrabold text-slate-900">{{ auth()->user()->bookings->where('status', 'completed')->count() }}</p>
@@ -107,8 +107,8 @@
             </div>
             @else
             <div class="p-12 text-center">
-                <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 text-2xl">
-                    🚗
+                <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
                 </div>
                 <p class="font-bold text-slate-900 text-base mb-1">Belum Ada Riwayat Sewa Mobil</p>
                 <p class="text-slate-400 text-xs mb-6 max-w-sm mx-auto">Pilih armada favorit Anda sekarang dan nikmati diskon khusus perjalanan pertama.</p>

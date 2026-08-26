@@ -14,9 +14,8 @@
              alt="Hero Background Mobil" 
              class="w-full h-full object-cover object-center"
              style="opacity: 0.5; filter: brightness(0.8) contrast(1.1); transform: scale(1.05);">
-        <!-- Dark Overlay Gradient (Menjaga teks tetap terbaca jelas) -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-900/60"></div>
-        <div class="absolute inset-0 bg-slate-950/20"></div>
+        <!-- Clean Dark Overlay (Menjaga teks tetap terbaca jelas) -->
+        <div class="absolute inset-0 bg-slate-950/85"></div>
     </div>
 
     <div class="container-custom relative z-10">
@@ -40,7 +39,10 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                             <!-- Location -->
                             <div>
-                                <label class="label text-slate-700">📍 Lokasi Penjemputan</label>
+                                <label class="label text-slate-700 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    Lokasi Penjemputan
+                                </label>
                                 <select name="location" class="input text-xs sm:text-sm bg-slate-50">
                                     <option value="Semarang">Semarang (Kota & Bandara)</option>
                                     <option value="Jakarta">Jakarta & Sekitarnya</option>
@@ -54,13 +56,19 @@
 
                             <!-- Start Date -->
                             <div>
-                                <label class="label text-slate-700">📅 Tanggal Ambil</label>
+                                <label class="label text-slate-700 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    Tanggal Ambil
+                                </label>
                                 <input type="date" name="start_date" value="{{ date('Y-m-d') }}" class="input text-xs sm:text-sm bg-slate-50">
                             </div>
 
                             <!-- Category -->
                             <div>
-                                <label class="label text-slate-700">🚗 Kategori Mobil</label>
+                                <label class="label text-slate-700 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+                                    Kategori Mobil
+                                </label>
                                 <select name="category" class="input text-xs sm:text-sm bg-slate-50">
                                     <option value="">Semua Kategori</option>
                                     @foreach($categories as $cat)
@@ -82,8 +90,9 @@
                                 </span>
                             </div>
 
-                            <button type="submit" class="btn btn-primary rounded-xl w-full sm:w-auto px-7 py-3 font-bold text-sm shadow-md">
-                                🔍 Cari Mobil Tersedia
+                            <button type="submit" class="btn btn-primary rounded-xl w-full sm:w-auto px-7 py-3 font-bold text-sm shadow-md flex items-center justify-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                Cari Mobil Tersedia
                             </button>
                         </div>
                     </form>
@@ -103,7 +112,7 @@
                     <!-- Floating Micro Badge 1: Rating -->
                     <div class="absolute -top-4 -left-4 bg-white rounded-2xl p-3.5 shadow-xl border border-slate-200 text-slate-900 hidden sm:flex items-center gap-3">
                         <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center font-bold text-lg">
-                            ⭐
+                            <svg class="w-5 h-5 text-amber-500 fill-amber-500" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         </div>
                         <div>
                             <p class="font-extrabold text-sm leading-tight">4.9 / 5.0</p>
@@ -225,9 +234,18 @@
 
                         <!-- Key Specs Pills -->
                         <div class="grid grid-cols-3 gap-1.5 py-2.5 px-3 bg-slate-50 rounded-xl mb-4 text-[11px] text-slate-600 font-medium text-center">
-                            <div title="Kapasitas Penumpang">👥 {{ $car->seats }} Kursi</div>
-                            <div title="Transmisi">⚙️ {{ $car->transmission === 'automatic' ? 'Matic' : 'Manual' }}</div>
-                            <div title="Jenis Bahan Bakar">⛽ {{ ucfirst($car->fuel_type) }}</div>
+                            <div title="Kapasitas Penumpang" class="inline-flex items-center justify-center gap-1">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                                {{ $car->seats }} Kursi
+                            </div>
+                            <div title="Transmisi" class="inline-flex items-center justify-center gap-1">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                {{ $car->transmission === 'automatic' ? 'Matic' : 'Manual' }}
+                            </div>
+                            <div title="Jenis Bahan Bakar" class="inline-flex items-center justify-center gap-1">
+                                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                {{ ucfirst($car->fuel_type) }}
+                            </div>
                         </div>
                     </div>
 
@@ -270,7 +288,7 @@
             <!-- Service 1 -->
             <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:border-slate-300 transition-all duration-300">
                 <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
-                    🔑
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
                 </div>
                 <h3 class="font-bold text-slate-900 text-base mb-2">Lepas Kunci (Self Drive)</h3>
                 <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
@@ -281,7 +299,7 @@
             <!-- Service 2 -->
             <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:border-slate-300 transition-all duration-300">
                 <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
-                    👔
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                 </div>
                 <h3 class="font-bold text-slate-900 text-base mb-2">Dengan Supir Profesional</h3>
                 <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
@@ -292,7 +310,7 @@
             <!-- Service 3 -->
             <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:border-slate-300 transition-all duration-300">
                 <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
-                    🏢
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 </div>
                 <h3 class="font-bold text-slate-900 text-base mb-2">Rental Korporat & Bulanan</h3>
                 <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
@@ -303,13 +321,12 @@
             <!-- Service 4 -->
             <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:border-slate-300 transition-all duration-300">
                 <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
-                    ✈️
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
                 </div>
                 <h3 class="font-bold text-slate-900 text-base mb-2">Antar Jemput Bandara & Hotel</h3>
                 <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
                     Layanan pick-up & drop-off tepat waktu di bandara internasional, stasiun, hotel, atau langsung ke depan pintu rumah Anda.
                 </p>
-            </div>
         </div>
     </div>
 </section>
@@ -410,7 +427,7 @@
                     <!-- Star Rating -->
                     <div class="flex items-center gap-1 text-amber-400 mb-4">
                         @for($i = 0; $i < $review->rating; $i++)
-                            <span>★</span>
+                            <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                         @endfor
                     </div>
                     <!-- Comment -->
@@ -470,7 +487,7 @@
 <section class="py-16 bg-slate-900 text-white relative overflow-hidden border-t border-slate-800">
     <div class="container-custom relative z-10 text-center max-w-2xl mx-auto">
         <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-blue-400 text-xs font-semibold mb-4">
-            ✨ Mulai Perjalanan Liburan Anda
+            Mulai Perjalanan Liburan Anda
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3 leading-tight">
             Siap Menjelajahi Kota dengan Nyaman?
@@ -482,8 +499,9 @@
             <a href="{{ route('cars.index') }}" class="btn btn-primary rounded-xl px-7 py-3 font-bold text-sm shadow-md">
                 Pilih Mobil Sekarang
             </a>
-            <a href="https://wa.me/6281299779053" target="_blank" class="btn btn-outline-white rounded-xl px-6 py-3 font-bold text-sm">
-                💬 Chat WhatsApp CS 24 Jam
+            <a href="https://wa.me/6281299779053" target="_blank" class="btn btn-outline-white rounded-xl px-6 py-3 font-bold text-sm flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400 fill-emerald-400" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.665-.699c.971.53 1.771.821 2.795.821 3.181 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0-2.172c4.418 0 8 3.582 8 8s-3.582 8-8 8c-1.393 0-2.695-.357-3.832-.984l-4.168 1.094 1.116-4.075c-.702-1.196-1.116-2.584-1.116-4.035 0-4.418 3.582-8 8-8z"/></svg>
+                Chat WhatsApp CS 24 Jam
             </a>
         </div>
     </div>
