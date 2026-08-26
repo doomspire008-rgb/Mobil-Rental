@@ -19,15 +19,11 @@
     <aside class="w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col min-h-screen fixed lg:static z-40 transition-transform duration-300 -translate-x-full lg:translate-x-0" id="admin-sidebar">
         <!-- Brand Logo -->
         <div class="h-16 px-6 flex items-center justify-between border-b border-slate-800">
-            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                    </svg>
-                </div>
+            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
                 <div>
-                    <span class="font-bold text-white tracking-tight text-base block">RentalMobilku</span>
-                    <span class="text-[10px] text-blue-400 font-semibold uppercase tracking-wider">Admin Center</span>
+                    <span class="font-extrabold text-white tracking-tight text-lg block leading-none">Rental<span class="text-blue-500">Mobilku</span></span>
+                    <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block mt-1">Admin Center</span>
                 </div>
             </a>
             <button class="lg:hidden text-slate-400 hover:text-white" onclick="toggleSidebar()">&times;</button>
