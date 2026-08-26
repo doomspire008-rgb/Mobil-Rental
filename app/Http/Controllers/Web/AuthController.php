@@ -49,6 +49,51 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
+    public function showAdminLoginForm()
+    {
+        if (Auth::check()) {
+            return Auth::user()->isAdmin() 
+                ? redirect()->route('admin.dashboard') 
+                : redirect()->route('dashboard')->with('error', 'Anda login sebagai customer.');
+        }
+        return view('auth.admin-login');
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        $remember = $request->boolean('remember');
+
+        if (Auth::attempt($credentials, $remember)) {
+            /** @var User $user */
+            $user = Auth::user();
+
+            // Strict check: only users with admin role can log in through the admin portal
+            if (!$user->isAdmin()) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return back()->withErrors([
+                    'email' => 'Akses ditolak. Akun ini tidak memiliki hak akses administrator.',
+                ])->onlyInput('email');
+            }
+
+            $request->session()->regenerate();
+
+            return redirect()->intended(route('admin.dashboard'))
+                ->with('success', 'Autentikasi Administrator Berhasil. Selamat datang, ' . $user->name . '!');
+        }
+
+        return back()->withErrors([
+            'email' => 'Kombinasi email atau kata sandi administrator tidak valid.',
+        ])->onlyInput('email');
+    }
+
     public function showRegisterForm()
     {
         if (Auth::check()) {

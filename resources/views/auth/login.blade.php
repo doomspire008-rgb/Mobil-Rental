@@ -7,8 +7,8 @@
     <div class="w-full max-w-md relative z-10">
         <!-- Header -->
         <div class="text-center mb-8">
-            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Selamat Datang Kembali</h1>
-            <p class="text-slate-500 text-sm mt-2">Masuk ke akun Anda untuk mengelola sewa & pesanan</p>
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Masuk Akun Pelanggan</h1>
+            <p class="text-slate-500 text-sm mt-2">Akses riwayat sewa armada dan kelola pesanan Anda</p>
         </div>
 
         <!-- Main Card -->

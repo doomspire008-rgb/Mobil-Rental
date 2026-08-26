@@ -10,12 +10,16 @@ Route::get('/', [LandingPageController::class, 'index'])->name('home');
 Route::get('/armada', [LandingPageController::class, 'cars'])->name('cars.index');
 Route::get('/armada/{id}', [LandingPageController::class, 'carDetail'])->name('cars.show');
 
-// Authentication routes
+// Authentication routes (Customer)
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Dedicated & Protected Admin Authentication routes
+Route::get('/admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'adminLogin'])->middleware('throttle:6,1');
 
 // Customer Protected routes
 Route::middleware('auth')->group(function () {
