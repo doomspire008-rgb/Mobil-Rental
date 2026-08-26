@@ -1,0 +1,5 @@
+*
+!.gitignore
+/vendor
+/node_modules
+.env
