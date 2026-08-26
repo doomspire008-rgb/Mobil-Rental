@@ -16,7 +16,6 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/quick-login/{role}', [AuthController::class, 'quickLogin'])->name('quick.login');
 
 // Customer Protected routes
 Route::middleware('auth')->group(function () {
@@ -42,4 +41,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Users Management
     Route::get('/users', [AdminController::class, 'users'])->name('users.index');
+    Route::post('/users', [AdminController::class, 'storeUser'])->name('users.store');
+    Route::patch('/users/{id}/role', [AdminController::class, 'updateUserRole'])->name('users.role');
+    Route::patch('/users/{id}/password', [AdminController::class, 'resetUserPassword'])->name('users.password');
+    Route::delete('/users/{id}', [AdminController::class, 'deleteUser'])->name('users.delete');
 });
+

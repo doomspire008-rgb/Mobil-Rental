@@ -8,6 +8,8 @@ use App\Models\Car;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -90,8 +92,14 @@ class AdminController extends Controller
         ]);
 
         if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file')->store('cars', 'public');
-            $validated['image'] = '/storage/' . $path;
+            $file = $request->file('image_file');
+            $filename = 'car_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/cars');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            $file->move($destinationPath, $filename);
+            $validated['image'] = '/uploads/cars/' . $filename;
         } elseif (empty($validated['image'])) {
             return back()->withInput()->with('error', 'Silakan pilih foto mobil untuk diunggah atau masukkan URL gambar.');
         }
@@ -128,8 +136,14 @@ class AdminController extends Controller
         ]);
 
         if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file')->store('cars', 'public');
-            $validated['image'] = '/storage/' . $path;
+            $file = $request->file('image_file');
+            $filename = 'car_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/cars');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            $file->move($destinationPath, $filename);
+            $validated['image'] = '/uploads/cars/' . $filename;
         } elseif (empty($validated['image'])) {
             $validated['image'] = $car->image;
         }
@@ -220,4 +234,81 @@ class AdminController extends Controller
         $users = User::withCount('bookings')->latest()->paginate(15);
         return view('admin.users.index', compact('users'));
     }
+
+    public function storeUser(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'phone' => 'nullable|string|max:20',
+            'role' => 'required|in:admin,customer',
+            'password' => 'required|string|min:8|confirmed',
+            'address' => 'nullable|string|max:500',
+        ]);
+
+        User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'] ?? null,
+            'role' => $validated['role'],
+            'password' => Hash::make($validated['password']),
+            'address' => $validated['address'] ?? null,
+            'email_verified_at' => now(),
+        ]);
+
+        $roleLabel = $validated['role'] === 'admin' ? 'Administrator' : 'Customer';
+        return back()->with('success', 'Akun ' . $roleLabel . ' baru "' . $validated['name'] . '" (' . $validated['email'] . ') berhasil ditambahkan!');
+    }
+
+    public function updateUserRole(Request $request, int $id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->id === Auth::id()) {
+            return back()->with('error', 'Anda tidak dapat mengubah peran akun Anda sendiri saat sedang aktif.');
+        }
+
+        $validated = $request->validate([
+            'role' => 'required|in:admin,customer',
+        ]);
+
+        $user->role = $validated['role'];
+        $user->save();
+
+        $roleLabel = $user->role === 'admin' ? 'Administrator' : 'Customer';
+        return back()->with('success', 'Peran akun "' . $user->name . '" berhasil diubah menjadi ' . $roleLabel . '.');
+    }
+
+    public function resetUserPassword(Request $request, int $id)
+    {
+        $user = User::findOrFail($id);
+
+        $validated = $request->validate([
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user->password = Hash::make($validated['password']);
+        $user->save();
+
+        return back()->with('success', 'Kata sandi untuk pengguna "' . $user->name . '" berhasil diperbarui!');
+    }
+
+    public function deleteUser(int $id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->id === Auth::id()) {
+            return back()->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+        }
+
+        if ($user->bookings()->whereIn('status', ['active', 'pending'])->exists()) {
+            return back()->with('error', 'Pengguna tidak dapat dihapus karena masih memiliki transaksi booking aktif/menunggu.');
+        }
+
+        $userName = $user->name;
+        $user->delete();
+
+        return back()->with('success', 'Akun pengguna "' . $userName . '" berhasil dihapus.');
+    }
 }
+

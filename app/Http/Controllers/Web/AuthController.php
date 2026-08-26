@@ -90,25 +90,5 @@ class AuthController extends Controller
         return redirect()->route('home')
             ->with('success', 'Anda telah berhasil keluar.');
     }
-
-    public function quickLogin(string $role)
-    {
-        $email = $role === 'admin' ? 'doomspire008@gmail.com' : 'john@example.com';
-        $user = User::where('email', $email)->orWhere('role', $role)->first();
-
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'Akun demo ' . $role . ' tidak ditemukan. Silakan jalankan seeder.');
-        }
-
-        Auth::login($user);
-        request()->session()->regenerate();
-
-        if ($user->isAdmin()) {
-            return redirect()->route('admin.dashboard')
-                ->with('success', 'Login otomatis sebagai Admin (' . $user->name . ')');
-        }
-
-        return redirect()->route('dashboard')
-            ->with('success', 'Login otomatis sebagai Customer (' . $user->name . ')');
-    }
 }
+

@@ -20,17 +20,6 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        // Backup admin alias for convenience
-        User::create([
-            'name' => 'Admin Rental',
-            'email' => 'admin@rentalmobilku.com',
-            'password' => Hash::make('password123'),
-            'role' => 'admin',
-            'phone' => '081299779053',
-            'address' => 'Jl. Seteran Tengah No. 9, Semarang',
-            'email_verified_at' => now(),
-        ]);
-
         User::create([
             'name' => 'John Doe',
             'email' => 'john@example.com',

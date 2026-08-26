@@ -1,0 +1,12 @@
+.git
+.github
+node_modules
+vendor
+.env
+.env.*
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+database/*.sqlite
+database/rental_mobil_infinityfree.sql

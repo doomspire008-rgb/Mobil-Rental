@@ -28,27 +28,6 @@
 
         <!-- Main Card -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-8">
-            <!-- 1-Click Demo Login Box -->
-            <div class="mb-6 p-4 rounded-xl bg-slate-50 border border-slate-200">
-                <div class="flex items-center justify-between mb-2.5">
-                    <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">⚡ 1-Click Demo Login</span>
-                    <span class="text-[11px] text-blue-600 font-semibold">Cepat & Praktis</span>
-                </div>
-                <div class="grid grid-cols-2 gap-2">
-                    <a href="{{ route('quick.login', 'admin') }}" class="btn-dark btn-sm text-center justify-center text-xs">
-                        🛡️ Login Admin
-                    </a>
-                    <a href="{{ route('quick.login', 'customer') }}" class="btn-outline btn-sm text-center justify-center text-xs">
-                        👤 Login Customer
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative flex items-center justify-center mb-6">
-                <div class="border-t border-slate-200 w-full"></div>
-                <span class="bg-white px-3 text-xs text-slate-400 font-medium absolute">atau gunakan email</span>
-            </div>
-
             <form method="POST" action="{{ route('login') }}" class="space-y-4">
                 @csrf
                 <div>
