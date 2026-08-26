@@ -3,8 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800/80">
             <!-- Brand & Bio (2 Cols) -->
             <div class="lg:col-span-2">
-                <a href="{{ route('home') }}" class="flex items-center gap-2 mb-5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                <a href="{{ route('home') }}" class="inline-block mb-5">
                     <span class="font-extrabold text-2xl tracking-tight text-white">Rental<span class="text-blue-500">Mobilku</span></span>
                 </a>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">

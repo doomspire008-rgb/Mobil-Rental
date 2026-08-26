@@ -9,8 +9,7 @@
         <div class="flex h-20 items-center justify-between transition-all duration-300" id="navbar-container">
             <!-- Brand Logo -->
             <div class="flex items-center gap-8">
-                <a href="{{ route('home') }}" class="flex items-center gap-2 group" aria-label="RentalMobilku Home">
-                    <span class="w-2.5 h-2.5 rounded-full bg-blue-600 group-hover:scale-125 transition-transform duration-200"></span>
+                <a href="{{ route('home') }}" class="flex items-center group" aria-label="RentalMobilku Home">
                     <div>
                         <span class="nav-brand-title font-extrabold text-2xl tracking-tight leading-none block transition-colors duration-300">
                             Rental<span class="nav-brand-accent transition-colors duration-300">Mobilku</span>

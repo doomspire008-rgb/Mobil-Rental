@@ -19,8 +19,7 @@
     <aside class="w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col min-h-screen fixed lg:static z-40 transition-transform duration-300 -translate-x-full lg:translate-x-0" id="admin-sidebar">
         <!-- Brand Logo -->
         <div class="h-16 px-6 flex items-center justify-between border-b border-slate-800">
-            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            <a href="{{ route('admin.dashboard') }}" class="flex items-center">
                 <div>
                     <span class="font-extrabold text-white tracking-tight text-lg block leading-none">Rental<span class="text-blue-500">Mobilku</span></span>
                     <span class="text-[10px] text-slate-400 font-medium uppercase tracking-wider block mt-1">Admin Center</span>
