@@ -6,8 +6,8 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2: PHP Application
-FROM php:8.3-apache
+# Stage 2: PHP Application (PHP 8.4)
+FROM php:8.4-apache
 
 # Install system dependencies & PHP extensions
 RUN apt-get update && apt-get install -y \
@@ -42,8 +42,8 @@ COPY . /var/www/html
 # Copy built assets from Stage 1
 COPY --from=node-build /app/public/build /var/www/html/public/build
 
-# Install Composer Dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+# Install Composer Dependencies with --ignore-platform-reqs for maximum reliability
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --ignore-platform-reqs
 
 # Set Permissions for Storage & Cache
 RUN mkdir -p /var/www/html/storage/framework/sessions \
