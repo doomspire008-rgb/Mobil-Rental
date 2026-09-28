@@ -45,8 +45,8 @@ RUN npm install && npm run build
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Buat script entrypoint untuk migrasi otomatis saat container menyala
-RUN printf '#!/bin/sh\nphp artisan config:clear\nphp artisan migrate --force\nexec apache2-foreground\n' > /usr/local/bin/entrypoint.sh \
+# Buat script entrypoint untuk migrasi dan seeder otomatis saat container menyala
+RUN printf '#!/bin/sh\nif [ -n "$PORT" ]; then sed -i "s/Listen 80/Listen $PORT/g" /etc/apache2/ports.conf; sed -i "s/:80/:$PORT/g" /etc/apache2/sites-available/000-default.conf; fi\nphp artisan config:clear\nphp artisan route:clear\nphp artisan view:clear\nphp artisan migrate --force\nphp artisan db:seed --force || true\nexec apache2-foreground\n' > /usr/local/bin/entrypoint.sh \
     && chmod +x /usr/local/bin/entrypoint.sh
 
 # Expose port 80
