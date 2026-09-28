@@ -3,7 +3,7 @@
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center gap-8">
                 <a href="{{ route('home') }}" class="flex items-center gap-2 text-neutral-900" aria-label="RentalMobilku Home">
-                    <svg class="w-8 h-8 text-primary-600" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg class="w-8 h-8 text-primary-600" width="32" height="32" style="max-width: 32px; max-height: 32px;" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <rect width="32" height="32" rx="8" fill="currentColor"/>
                         <path d="M8 20H24M10 20V14C10 11.7909 11.7909 10 14 10H18C20.2091 10 22 11.7909 22 14V20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle cx="11" cy="20" r="2" fill="white"/>
