@@ -1,5 +1,5 @@
-# Base image PHP 8.3 dengan Apache
-FROM php:8.3-apache
+# Base image PHP 8.4 dengan Apache
+FROM php:8.4-apache
 
 # Set direktori kerja
 WORKDIR /var/www/html
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install ekstensi PHP (PostgreSQL, MySQL, Zip, GD, dll.)
-RUN docker-php-ext-install pdo pdo_pgsql pgsql pdo_mysql mbstring exif pcntl bcmath gd zip
+RUN docker-php-ext-install pdo_pgsql pgsql pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Aktifkan mod_rewrite Apache untuk routing Laravel
 RUN a2enmod rewrite
@@ -45,7 +45,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Buat script entrypoint untuk migrasi otomatis saat container menyala
-RUN echo '#!/bin/sh\nphp artisan config:clear\nphp artisan migrate --force\nexec apache2-foreground' > /usr/local/bin/entrypoint.sh \
+RUN printf '#!/bin/sh\nphp artisan config:clear\nphp artisan migrate --force\nexec apache2-foreground\n' > /usr/local/bin/entrypoint.sh \
     && chmod +x /usr/local/bin/entrypoint.sh
 
 # Expose port 80
